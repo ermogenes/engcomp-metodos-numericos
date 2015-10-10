@@ -27,7 +27,7 @@ print(
 ### Exercício 1
 Conversão decimal-binário
 
-|Decimal|Binário
+i|Decimal|Binário
 ---|---|---'''
 )
 
@@ -44,7 +44,7 @@ print(
 ### Exercício 2
 Conversão binário-decimal
 
-|Binário|Decimal
+i|Binário|Decimal
 ---|---|---'''
 )
 
@@ -75,7 +75,7 @@ Base `10`, mantissa `4`, expoente `[-3,3]`
 
 Representar por arredondamento e por truncamento
 
-|Real|Arredondado|Truncado
+i|Real|Arredondado|Truncado
 ---|---|---|---'''
 )
 
