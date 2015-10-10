@@ -160,3 +160,10 @@ b. x2 x3
 c. x1 + x4 / x2
 d. x5 - x4
 e. x1 + x2 + x3
+
+Créditos
+========
+
+**Exercícios**: Univesp
+
+**Respostas**: Ermogenes Palacio - [Twitter](http://www.twitter.com/ermogenes)
