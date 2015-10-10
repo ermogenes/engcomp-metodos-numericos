@@ -315,10 +315,115 @@ Exercício 6
 Erro absoluto e relativo
 
 a. x1 + x2
+```
+Resultado real:
+x1 = 0.834456
+x2 = 2.634305
+x1 + x2 = 0.834456 + 2.634305 = 3.468761
+
+Considerando um sistema que opera por truncamentos,
+x1 = 0.8344
+x2 = 2.6343
+
+x1 --> 0.8344
+x2 --> 2.6343 +
+       ------
+	   3.4687
+
+Erro absoluto: 3.468761 - 3.4687 = 0.000061
+Erro relativo: 0.000061 / 3.468761 ~= 0.00001758552... ~= 1e-5
+```
+
 b. x2 x3
+```
+Resultado real:
+x2 = 2.634305
+x3 = 0.103457
+x2 * x3 = 0.272537292385
+
+Considerando um sistema que opera por truncamentos,
+x2 = 2.6343
+x3 = 0.1034
+
+x2 --> 2.6343
+x3 --> 0.1034 *
+       ------
+	   0.2725
+
+Erro absoluto: 0.272537292385 - 0.2725 = 0.000037292385
+Erro relativo: 0.000037292385 / 0.272537292385 ~= 0.00013683406... ~= 1e-4
+```
+
 c. x1 + x4 / x2
+```
+Resultado real:
+x1 = 0.834456
+x2 = 2.634305
+x4 = 14.780340
+x1 + x4 / x2 = 6.4451685232509...
+
+Considerando um sistema que opera por truncamentos,
+x1 =  0.8344
+x2 =  2.6343
+x4 = 14.7803
+
+x4 --> 14.7803
+x2 -->  2.6343 /
+       -------
+	    5.6107125 ~
+		5.6107
+x1 -->  0.8344 +
+        ------
+		6.4451
+
+Erro absoluto: 6.4451685232509... - 6.4451 = 0.000068523250958...
+Erro relativo: 0.000068523250958... / 6.4451685232509... ~=
+ 							 ~= 0.0000106317237030049... ~= 1e-5
+```
+
 d. x5 - x4
+```
+Resultado real:
+x4 = 14.780340
+x5 = 25.546774
+x5 - x4 = 10.766434
+
+Considerando um sistema que opera por truncamentos,
+x4 = 14.7803
+x5 = 25.5467
+
+x5 --> 25.5467
+x4 --> 14.7803 -
+       -------
+	   10.7664
+
+Erro absoluto: 10.766434 - 10.7664 = 0.000034
+Erro relativo: 0.000034 / 10.766434 ~=
+              ~= 0.0000031579629... ~= 3e-6
+```
+
 e. x1 + x2 + x3
+```
+Resultado real:
+x1 = 0.834456
+x2 = 2.634305
+x3 = 0.103457
+x1 + x2 + x3 = 3.572213
+
+Considerando um sistema que opera por truncamentos,
+x1 = 0.8344
+x2 = 2.6343
+x3 = 0.1034
+
+x1 --> 0.8344
+x2 --> 2.6343
+x3 --> 0.1034
+       ------
+	   3.5721
+
+Erro absoluto: 3.572213 - 3.5721 = 0.000113
+Erro relativo: 0.000113 / 3.572213 ~= 0.0000316330521164... ~= 3e-5
+```
 
 Créditos
 ========
