@@ -29,13 +29,13 @@ Base `10`, mantissa `4`, expoente `[-3,3]`
 
 Representar por arredondamento e por truncamento
 
-i|Real|Arredondado|Truncado
+i|Real|Truncado|Arredondado
 ---|---|---|---
-a|`0.834456`|`0.8345`|`0.8344`
-b|`2.634305`|`2.6343`|`2.6343`
-c|`0.103457`|`0.1035`|`0.1034`
-d|`14.780340`|`14.7803`|`14.7803`
-e|`25.546774`|`25.5468`|`25.5467`
+a|`0.834456`|`0.8344`|`0.8345`
+b|`2.634305`|`2.634`|`2.634`
+c|`0.103457`|`0.1034`|`0.1035`
+d|`14.780340`|`14.78`|`14.78`
+e|`25.546774`|`25.54`|`25.55`
 
 ### Créditos
 
@@ -43,5 +43,5 @@ e|`25.546774`|`25.5468`|`25.5467`
 
 **Respostas**: Ermogenes Palacio - Twitter: [@ermogenes](http://www.twitter.com/ermogenes)
 
-Gerado em 10/10/2015, às 16h25min01s.
+Gerado em 10/10/2015, às 17h59min48s.
 

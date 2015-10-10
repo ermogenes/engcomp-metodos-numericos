@@ -6,7 +6,7 @@ Os resultados são gerados em Markdown (https://daringfireball.net/projects/mark
 
 __author__ = 'Ermogenes Palacio'
 
-from decimal import Decimal, ROUND_FLOOR
+from decimal import Decimal, Context, ROUND_FLOOR
 from datetime import date, datetime
 
 ############ cabeçalho
@@ -64,8 +64,8 @@ x = [
 saida = zip(
             letras,
             x,
-            [xn.quantize(Decimal('1.0000')) for xn in x],
-            [xn.quantize(Decimal('1.0000'), rounding=ROUND_FLOOR) for xn in x]
+            [Context(prec=4, rounding=ROUND_FLOOR).create_decimal(xn) for xn in x],
+            [xn.quantize(Context(prec=4, rounding=ROUND_FLOOR).create_decimal(xn)) for xn in x]
         )
 
 print(
@@ -75,12 +75,12 @@ Base `10`, mantissa `4`, expoente `[-3,3]`
 
 Representar por arredondamento e por truncamento
 
-i|Real|Arredondado|Truncado
+i|Real|Truncado|Arredondado
 ---|---|---|---'''
 )
 
-for l, x, xr, xt in saida:
-    print('{}|`{}`|`{}`|`{}`'.format(l, x, xr, xt))
+for l, x, xt, xr in saida:
+    print('{}|`{}`|`{}`|`{}`'.format(l, x, xt, xr))
 
 
 ############# rodapé
@@ -92,5 +92,6 @@ print('''
 
 **Respostas**: Ermogenes Palacio - Twitter: [@ermogenes](http://www.twitter.com/ermogenes)
 
-Gerado em {}.
-'''.format(datetime.now().strftime("%d/%m/%Y, às %Hh%Mmin%Ss")))
+Gerado em {:%d/%m/%Y, às %Hh%Mmin%Ss}.
+'''.format(datetime.now())
+)
