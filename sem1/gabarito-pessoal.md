@@ -5,7 +5,7 @@ Resultados esperados de alguns exercícios da semana 1, para conferência.
 ### Exercício 1
 Conversão decimal-binário
 
-|Decimal|Binário
+i|Decimal|Binário
 ---|---|---
 a|`2`|`10`
 b|`10`|`1010`
@@ -16,7 +16,7 @@ e|`583`|`1001000111`
 ### Exercício 2
 Conversão binário-decimal
 
-|Binário|Decimal
+i|Binário|Decimal
 ---|---|---
 a|`1`|`1`
 b|`101`|`5`
@@ -29,7 +29,7 @@ Base `10`, mantissa `4`, expoente `[-3,3]`
 
 Representar por arredondamento e por truncamento
 
-|Real|Arredondado|Truncado
+i|Real|Arredondado|Truncado
 ---|---|---|---
 a|`0.834456`|`0.8345`|`0.8344`
 b|`2.634305`|`2.6343`|`2.6343`
@@ -43,5 +43,5 @@ e|`25.546774`|`25.5468`|`25.5467`
 
 **Respostas**: Ermogenes Palacio - Twitter: [@ermogenes](http://www.twitter.com/ermogenes)
 
-Gerado em 10/10/2015, às 16h17min56s.
+Gerado em 10/10/2015, às 16h25min01s.
 
