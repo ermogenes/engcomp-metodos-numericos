@@ -265,14 +265,49 @@ e. 1001.001
 Exercício 5
 ===========
 
-Base 10, matissa 4, expoente [-3,3]
+Base `10`, mantissa `4`, expoente `[-3,3]`
+
 Representar por arredondamento e por truncamento
 
 a. x1 = 0.834456
+```
+Truncamento: 0.8344
+Arredondamento:
+0.000056 >= 0.00005 ~= 0.0001
+0.8344 + 0.0001 --> 0.8345
+```
+
 b. x2 = 2.634305
+```
+Truncamento: 2.6343
+Arredondamento:
+0.000005 < 0.00005 ~= 0
+2.6343 + 0 --> 2.6343
+```
+
 c. x3 = 0.103457
+```
+Truncamento: 0.1034
+Arredondamento:
+0.000057 >= 0.00005 ~= 0.0001
+0.1034 + 0.0001 --> 0.1035
+```
+
 d. x4 = 14.780340
+```
+Truncamento: 14.7803
+Arredondamento:
+0.00004 < 0.00005 ~= 0
+14.7803 + 0 --> 14.7803
+```
+
 e. x5 = 25.546774
+```
+Truncamento: 25.5467
+Arredondamento:
+0.000074 >= 0.00005 ~= 0.0001
+25.5467 + 0.0001 --> 25.5468
+```
 
 Exercício 6
 ===========
