@@ -37,11 +37,22 @@ c|`0.103457`|`0.1034`|`0.1035`
 d|`14.780340`|`14.78`|`14.78`
 e|`25.546774`|`25.54`|`25.55`
 
+### Exercício 6
+Erro absoluto e relativo
+
+i|Expressão|Resultado real|Truncado|Erro absoluto|Erro relativo
+---|---|---|---|---|---
+a|`x1 + x2`|`3.468761`|`3.468`|`0.000761`|`2.19e-4`
+b|`x2 x3`|`0.272537292385`|`0.2723`|`0.000237292385`|`8.71e-4`
+c|`x1 + x4 / x2`|`6.445173058199411229906939401`|`6.445`|`0.000173058199411229906939401`|`2.69e-5`
+d|`x5 - x4`|`10.766434`|`10.76`|`0.006434`|`5.98e-4`
+e|`x1 + x2 + x3`|`3.572218`|`3.571`|`0.001218`|`3.41e-4`
+
 ### Créditos
 
 **Exercícios**: [Univesp](http://engenharia.cursos.univesp.br/)
 
 **Respostas**: Ermogenes Palacio - Twitter: [@ermogenes](http://www.twitter.com/ermogenes)
 
-Gerado em 10/10/2015, às 17h59min48s.
+Gerado em 10/10/2015, às 21h01min43s.
 

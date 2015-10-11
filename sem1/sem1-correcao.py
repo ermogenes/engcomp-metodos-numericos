@@ -15,12 +15,26 @@ print('## Gabarito pessoal')
 print('### Métodos Numéricos - Semana 1')
 print('Resultados esperados de alguns exercícios da semana 1, para conferência.')
 
+############ definições
+
 letras = list('abcde')
+
+def truncar_precisao_4(numero):
+    return Context(prec=4, rounding=ROUND_FLOOR).create_decimal(numero)
+
+def arredondar_precisao_4(numero):
+    return numero.quantize(Context(prec=4, rounding=ROUND_FLOOR).create_decimal(numero))
+
+def erro_absoluto(real, truncado):
+    return real - truncado
+
+def erro_relativo(real, truncado):
+    return (real - truncado) / real
 
 ############ 1
 
-n = [2, 10, 79, 107, 583]
-saida = zip(letras, n)
+x = [2, 10, 79, 107, 583]
+saida = zip(letras, x)
 
 print(
 '''
@@ -31,8 +45,8 @@ i|Decimal|Binário
 ---|---|---'''
 )
 
-for l, x in saida:
-    print('{}|`{}`|`{:b}`'.format(l, x, x))
+for l, n in saida:
+    print('{}|`{}`|`{:b}`'.format(l, n, n))
 
 ########### 2
 
@@ -54,18 +68,18 @@ for l, b in saida:
 ########### 5
 
 x = [
-     Decimal('0.834456'),
-     Decimal('2.634305'),
-     Decimal('0.103457'),
-     Decimal('14.780340'),
-     Decimal('25.546774'),
+    Decimal('0.834456'),
+    Decimal('2.634305'),
+    Decimal('0.103457'),
+    Decimal('14.780340'),
+    Decimal('25.546774'),
     ]
 
 saida = zip(
             letras,
             x,
-            [Context(prec=4, rounding=ROUND_FLOOR).create_decimal(xn) for xn in x],
-            [xn.quantize(Context(prec=4, rounding=ROUND_FLOOR).create_decimal(xn)) for xn in x]
+            [truncar_precisao_4(xn) for xn in x],
+            [arredondar_precisao_4(xn) for xn in x]
         )
 
 print(
@@ -79,9 +93,65 @@ i|Real|Truncado|Arredondado
 ---|---|---|---'''
 )
 
-for l, x, xt, xr in saida:
-    print('{}|`{}`|`{}`|`{}`'.format(l, x, xt, xr))
+for l, n, nt, nr in saida:
+    print('{}|`{}`|`{}`|`{}`'.format(l, n, nt, nr))
 
+########### 6
+
+expr = [
+    'x1 + x2',
+    'x2 x3',
+    'x1 + x4 / x2',
+    'x5 - x4',
+    'x1 + x2 + x3',
+    ]
+
+real = [
+    x[0] + x[1],
+    x[1] * x[2],
+    x[0] + x[3] / x[1],
+    x[4] - x[3],
+    x[0] + x[1] + x[2],
+]
+
+tr4 = truncar_precisao_4
+
+truncado = [
+    tr4(tr4(x[0]) + tr4(x[1])),
+    tr4(tr4(x[1]) * tr4(x[2])),
+    tr4(tr4(x[0]) + tr4(tr4(x[3]) / tr4(x[1]))),
+    tr4(tr4(x[4]) - tr4(x[3])),
+    tr4(tr4(x[0]) + tr4(x[1]) + tr4(x[2])),
+]
+
+tab_erro = list(zip(
+    real,
+    truncado
+    ))
+
+e_abs = [erro_absoluto(r, t) for r, t in tab_erro]
+e_rel = [erro_relativo(r, t) for r, t in tab_erro]
+
+saida = zip(
+            letras,
+            expr,
+            real,
+            truncado,
+            e_abs,
+            e_rel,
+        )
+
+print(
+'''
+### Exercício 6
+Erro absoluto e relativo
+
+i|Expressão|Resultado real|Truncado|Erro absoluto|Erro relativo
+---|---|---|---|---|---'''
+)
+
+for l, e, r, t, ea, er in saida:
+    print('{}|`{}`|`{}`|`{}`|`{}`|`{:.2e}`'.format(l, e, r, t, ea, er))
 
 ############# rodapé
 
