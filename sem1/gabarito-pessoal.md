@@ -20,7 +20,7 @@ i|Binário|Decimal
 ---|---|---
 a|`1`|`1`
 b|`101`|`5`
-c|`100`|`4`
+c|`1000`|`8`
 d|`1011`|`11`
 e|`111001`|`57`
 
@@ -54,5 +54,5 @@ e|`x1 + x2 + x3`|`3.572218`|`3.571`|`0.001218`|`3.41e-4`
 
 **Respostas**: Ermogenes Palacio - Twitter: [@ermogenes](http://www.twitter.com/ermogenes)
 
-Gerado em 10/10/2015, às 21h01min43s.
+Gerado em 11/10/2015, às 16h31min31s.
 

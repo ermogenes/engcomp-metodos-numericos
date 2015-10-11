@@ -50,7 +50,7 @@ for l, n in saida:
 
 ########### 2
 
-b = [0b1, 0b101, 0b100, 0b1011, 0b111001]
+b = [0b1, 0b101, 0b1000, 0b1011, 0b111001]
 saida = zip(letras, b)
 
 print(
