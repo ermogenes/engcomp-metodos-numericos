@@ -6,7 +6,7 @@ Avaliando a função `f: [1,2] -> |R, y = x³ - x - 2`, pelo método da bisseç�
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|1|2|1.5|-0.125|5e-01
 2|1.5|2|1.75|1.609375|2e-01
@@ -25,7 +25,7 @@ Avaliando a função `f: [1,2] -> |R, y = x³ - x - 2`, pelo método da bisseç�
 15|1.5213623046875|1.52142333984375|1.521392822265625|7.795631350404619e-05|3e-05
 16|1.5213623046875|1.521392822265625|1.5213775634765625|-1.2739467674549587e-05|2e-05
 17|1.5213775634765625|1.521392822265625|1.5213851928710938|3.260815724592803e-05|8e-06
-Tempo de execução: 0.0003644361306567241 (segundos)
+Tempo de execução: 0.00036261577036373347 (segundos)
 ### **Raíz aproximada encontrada**: 1.5213851928710938
 #### **Truncado**: 1.52138 	**Arredondado**: 1.52138
 x³ - 9x² + 23x - 15
@@ -34,10 +34,10 @@ Avaliando a função `f: [2,4] -> |R, y = x³ - 9x² + 23x - 15`, pelo método d
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|2|4|3.0|0.0|1e+00
-Tempo de execução: 1.711138675411191e-05 (segundos)
+Tempo de execução: 1.7475458812710024e-05 (segundos)
 ### **Raíz aproximada encontrada**: 3.0
 #### **Truncado**: 3.00000 	**Arredondado**: 3.00000
 x³ - 9x² + 23x - 15
@@ -46,7 +46,7 @@ Avaliando a função `f: [1.5,3.3] -> |R, y = x³ - 9x² + 23x - 15`, pelo méto
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|1.5|3.3|2.4|2.1839999999999975|9e-01
 2|2.4|3.3|2.8499999999999996|0.596624999999996|4e-01
@@ -66,7 +66,7 @@ Avaliando a função `f: [1.5,3.3] -> |R, y = x³ - 9x² + 23x - 15`, pelo méto
 16|2.9999633789062496|3.0000183105468747|2.999990844726562|3.662109374147349e-05|3e-05
 17|2.999990844726562|3.0000183105468747|3.0000045776367186|-1.831054687784217e-05|1e-05
 18|2.999990844726562|3.0000045776367186|2.9999977111816403|9.155273446026513e-06|7e-06
-Tempo de execução: 0.0004354301820833587 (segundos)
+Tempo de execução: 0.00043688647031775126 (segundos)
 ### **Raíz aproximada encontrada**: 2.9999977111816403
 #### **Truncado**: 2.99999 	**Arredondado**: 2.99999
 sen x
@@ -75,7 +75,7 @@ Avaliando a função `f: [1,4] -> |R, y = sen x`, pelo método da bisseção:
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|1|4|2.5|0.5984721441039564|2e+00
 2|2.5|4|3.25|-0.10819513453010837|8e-01
@@ -96,7 +96,7 @@ Avaliando a função `f: [1,4] -> |R, y = sen x`, pelo método da bisseção:
 17|3.1415557861328125|3.1416015625|3.1415786743164062|1.3979273386533158e-05|2e-05
 18|3.1415786743164062|3.1416015625|3.141590118408203|2.535181590110747e-06|1e-05
 19|3.141590118408203|3.1416015625|3.1415958404541016|-3.186864308318643e-06|6e-06
-Tempo de execução: 0.0003516936086057898 (segundos)
+Tempo de execução: 0.0003564265453675653 (segundos)
 ### **Raíz aproximada encontrada**: 3.1415958404541016
 #### **Truncado**: 3.14159 	**Arredondado**: 3.14159
 ln x
@@ -105,7 +105,7 @@ Avaliando a função `f: [0.5,5] -> |R, y = ln x`, pelo método da bisseção:
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|0.5|5|2.75|1.0116009116784799|2e+00
 2|0.5|2.75|1.625|0.4855078157817008|1e+00
@@ -126,7 +126,7 @@ Avaliando a função `f: [0.5,5] -> |R, y = ln x`, pelo método da bisseção:
 17|0.9999465942382812|1.0000152587890625|0.9999809265136719|-1.907366822937835e-05|3e-05
 18|0.9999809265136719|1.0000152587890625|0.9999980926513672|-1.9073504518042164e-06|2e-05
 19|0.9999980926513672|1.0000152587890625|1.0000066757202148|6.675697932322725e-06|9e-06
-Tempo de execução: 0.0003651642747739205 (segundos)
+Tempo de execução: 0.00035788283360195777 (segundos)
 ### **Raíz aproximada encontrada**: 1.0000066757202148
 #### **Truncado**: 1.00000 	**Arredondado**: 1.00001
 x²
@@ -140,7 +140,7 @@ Avaliando a função `f: [-1,3.141592653589793] -> |R, y = x³`, pelo método da
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|-1|3.141592653589793|1.0707963267948966|1.2277801797251402|2e+00
 2|-1|1.0707963267948966|0.03539816339744828|4.4354959687656826e-05|1e+00
@@ -161,7 +161,7 @@ Avaliando a função `f: [-1,3.141592653589793] -> |R, y = x³`, pelo método da
 17|-5.461795423436776e-05|8.577734449558526e-06|-2.3020109892404617e-05|-1.2198942311515028e-14|3e-05
 18|-2.3020109892404617e-05|8.577734449558526e-06|-7.221187721423046e-06|-3.765528206093388e-16|2e-05
 19|-7.221187721423046e-06|8.577734449558526e-06|6.782733640677401e-07|3.120428872813491e-19|8e-06
-Tempo de execução: 0.0004681966673571896 (segundos)
+Tempo de execução: 0.00046674037912279717 (segundos)
 ### **Raíz aproximada encontrada**: 6.782733640677401e-07
 #### **Truncado**: 0.00000 	**Arredondado**: 0.00001
 (√x) - 1
@@ -170,7 +170,7 @@ Avaliando a função `f: [0,3] -> |R, y = (√x) - 1`, pelo método da bisseçã
 
 *Tolerância*: `1e-5`, *número máximo de iterações*: `100`
 
-#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
+i|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto
 ---|---|---|---|---|---
 1|0|3|1.5|0.22474487139158894|2e+00
 2|0|1.5|0.75|-0.1339745962155614|8e-01
@@ -191,7 +191,7 @@ Avaliando a função `f: [0,3] -> |R, y = (√x) - 1`, pelo método da bisseçã
 17|0.9999847412109375|1.000030517578125|1.0000076293945312|3.814689989667386e-06|2e-05
 18|0.9999847412109375|1.0000076293945312|0.9999961853027344|-1.9073504518019035e-06|1e-05
 19|0.9999961853027344|1.0000076293945312|1.0000019073486328|9.536738616588991e-07|6e-06
-Tempo de execução: 0.0003418636630236399 (segundos)
+Tempo de execução: 0.0003506013924299946 (segundos)
 ### **Raíz aproximada encontrada**: 1.0000019073486328
 #### **Truncado**: 1.00000 	**Arredondado**: 1.00001
 
@@ -202,4 +202,4 @@ Créditos
 
 **Implementação**: Ermogenes Palacio - Twitter: [@ermogenes](http://www.twitter.com/ermogenes)
 
-Gerado em 13/10/2015, às 21h53min42s.
+Gerado em 13/10/2015, às 22h05min02s.

@@ -40,7 +40,7 @@ def raiz_aprox_intervalo_por_bissecao(f, a, b, t = TOL, max_iteracoes = MAX_ITER
     tabela_saida = []
     tabela_saida.append('*Tolerância*: `{:.0e}`, *número máximo de iterações*: `{}`'.format(t, max_iteracoes))
     tabela_saida.append(
-        '\n#|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto\n---|---|---|---|---|---'
+        '\ni|limite inferior (a)|limite superior (b)|ponto médio (c)|f(c)|erro absoluto\n---|---|---|---|---|---'
     )
 
     # Loop de aproximação
