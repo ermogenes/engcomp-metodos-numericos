@@ -8,7 +8,7 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
 
 ## Semana 2
 * [Implementação](sem2/raizes.py) da aproximação de raízes de funções reais pelo método da bisseção (Python 3)
-* [Resultados detalhados](sem2/raizes.py) da execução do script acima
+* [Resultados detalhados](sem2/raizes.md) da execução do script acima
 
 ## Créditos
 
