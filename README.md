@@ -3,11 +3,11 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
 
 ## Semana 1
 * [Minha resposta](sem1/exercicios.md)
-* Script para geração de [gabarito pessoal](sem1/sem1-correcao.py), em Python 3
+* Script para geração de [gabarito pessoal](sem1/sem1-correcao.py), (Python 3)
 * [Gabarito calculado](sem1/gabarito-pessoal.md)
 
 ## Semana 2
-* [Implementação](sem2/raizes.py) da aproximação de raízes de funções reais pelo método da bisseção, em Python 3]
+* [Implementação](sem2/raizes.py) da aproximação de raízes de funções reais pelo método da bisseção (Python 3)
 * [Resultados detalhados](sem2/raizes.py) da execução do script acima
 
 ## Créditos
