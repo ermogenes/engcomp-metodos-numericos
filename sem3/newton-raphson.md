@@ -43,3 +43,10 @@ Função: `x^3`
 `33`|`0.0000`|`0.00000000`|`0.0000`|`1.6e-011`
 
 Aproximação encontrada: `0.00000`
+
+---
+#### Interpretação gráfica das primeiras iterações:
+
+[Arquivo do Geogebra](newton-raphson.ggb)
+
+![Interpretação gráfica das primeiras iterações](newton-raphson.png)
