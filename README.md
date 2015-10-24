@@ -12,6 +12,10 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
  * da falsa posição
 * [Resultados detalhados](sem2/raizes.md) da execução do script acima
 
+## Semana 3
+* [Implementação](sem3/newton-raphson.c) em  C da aproximação de raízes de funções reais pelo método de Newton-Raphson.
+* [Resultado](sem3/newton-raphson.md) da execução do script acima
+
 ## Créditos
 
 **Exercícios**: [Univesp](http://engenharia.cursos.univesp.br/)

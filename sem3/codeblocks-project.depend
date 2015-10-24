@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1445530753 source:c:\users\p017176\desktop\metodos-numericos-project\metodos-numericos-project\newton-raphson.c
+	<stdio.h>
+	<stdbool.h>
+	<math.h>
+
+1445711259 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem3\newton-raphson.c
+	<stdio.h>
+	<stdbool.h>
+	<math.h>
+
