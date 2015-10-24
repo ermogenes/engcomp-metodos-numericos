@@ -53,7 +53,7 @@ double newtonRaphson(double x, double epsilon_f, double epsilon_x){
     printf("---|---|---|---|---\n");
 
     // iterando até o máximo permitido
-	for(i = 1; i <= MAX_ITER; i++){
+    for(i = 1; i <= MAX_ITER; i++){
 
         // calcula y e y' no ponto atual
         y = f(x0);
