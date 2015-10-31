@@ -4,6 +4,7 @@ Encontra raízes aproximadas de funções reais.
 Ref:
 (https://pt.wikipedia.org/wiki/M%C3%A9todo_da_bisse%C3%A7%C3%A3o)
 (https://pt.wikipedia.org/wiki/M%C3%A9todo_da_posi%C3%A7%C3%A3o_falsa)
+(https://pt.wikipedia.org/wiki/M%C3%A9todo_das_secantes)
 """
 
 __author__ = 'Ermogenes Palacio'
@@ -148,11 +149,74 @@ def raiz_aprox_intervalo_por_posicao_falsa(f, a, b, t = TOL, max_iteracoes = MAX
     raise Exception("Valor da função não encontrado.")
 
 
+def raiz_aprox_intervalo_por_secantes(f, a, b, t = TOL, max_iteracoes = MAX_ITER):
+    """
+    Calcula raízes de uma dada função em um dado intervalo pelo método das secantes.
+
+    :param f: função que será analizada
+    :param a: intervalo inferior de análise da função
+    :param b: intervalo superior de análise da função
+    :param t: margem de tolerância
+    :param max_iteracoes: número máximo de iterações
+    :return: raíz aproximada da função, e lista de strings com tabela Markdown, para exibição
+    """
+
+    # Avalia a validade dos limites inferior e superior do intervalo.
+    if not a < b:
+        raise Exception("Intervalo inválido.")
+
+    # String de saída (uma tabela Markdown)
+    tabela_saida = []
+    tabela_saida.append('*Tolerância*: `{:.0e}`, *número máximo de iterações*: `{}`'.format(t, max_iteracoes))
+    tabela_saida.append(
+        '\ni|limite inferior (a)|limite superior (b)|novo ponto (c)|erro absoluto\n---|---|---|---|---'
+    )
+
+    try:
+        # Precisamos de f(a)
+        f_a = f(a)
+    except ValueError:
+        raise Exception("O cálculo não é possível.")
+
+    # Loop de aproximação
+    for i in range(1, max_iteracoes):
+
+        try:
+            # Precisamos de f(b)
+            f_b = f(b)
+        except ValueError:
+            raise Exception("O cálculo não é possível.")
+
+        # Calcula novo ponto
+        c = (b - a) / (f_b - f_a) * f_b
+
+        # Calcula o erro
+        erro = abs(c)
+
+        # Atualiza a tabela para saída
+        tabela_saida.append('{}|{}|{}|{}|{:.0e}'.format(i, a, b, c, erro))
+
+        # Avalia se a raíz foi encontrada
+        #   se o erro é menor que a tolerância dada, a aproximação é suficiente
+        if erro < t:
+            # Fim do algoritmo, a raíz aproximada é retornada
+            return b, tabela_saida
+
+        # Como não encontrou a raíz, calcula o próximo intervalo
+        a = b
+        f_a = f_b
+        b -= c
+
+    # Loop terminou sem encontrar resultado
+    raise Exception("Valor da função não encontrado.")
+
+
 def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
     """
     Helper para as funções:
     * `raiz_aprox_intervalo_por_bissecao`
     * `raiz_aprox_intervalo_por_posicao_falsa`
+    * `raiz_aprox_intervalo_por_secantes`
 
     Exibe saída formatada (Markdown).
     """
@@ -180,7 +244,7 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
             raiz_bissecao = None
             raiz_bissecao_truncado = None
             raiz_bissecao_arredondado = None
-            saida.append(str(excecao))
+            saida.append(str(excecao) + '\n')
         finally:
             tempo_decorrido_bissecao = timeit.default_timer() - inicio
 
@@ -220,7 +284,7 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
             raiz_posicao_falsa = None
             raiz_posicao_falsa_truncado = None
             raiz_posicao_falsa_arredondado = None
-            saida.append(str(excecao))
+            saida.append(str(excecao) + '\n')
         finally:
             tempo_decorrido_posicao_falsa = timeit.default_timer() - inicio
 
@@ -240,6 +304,46 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
         raiz_posicao_falsa_truncado = None
         raiz_posicao_falsa_arredondado = None
 
+    # Método das secantes
+
+    print('\n---')
+    print('##### Avaliando a função `f: [{},{}] -> |R, y = {}`, pelo **método das secantes **:\n'.format(a, b, descricao))
+
+    if not a < b:
+        print('Intervalo inválido.')
+        return None
+
+    # Avalia se o intervalo dado possui raízes, pelo Teorema de Bolzano
+    if f(a) * f(b) < 0:
+
+        # Calcula a raíz aproximada, contando o tempo de execução
+        inicio = timeit.default_timer()
+        try:
+            raiz_secantes, saida = raiz_aprox_intervalo_por_secantes(f, a, b, t = TOL, max_iteracoes = MAX_ITER)
+        except Exception as excecao:
+            raiz_secantes = None
+            raiz_secantes_truncado = None
+            raiz_secantes_arredondado = None
+            saida.append(str(excecao) + '\n')
+        finally:
+            tempo_decorrido_secantes = timeit.default_timer() - inicio
+
+        # Exibe resultado formatado
+        for linha in saida: print(linha)
+        print('Tempo de execução: {} (segundos)'.format(tempo_decorrido_secantes))
+
+        # Efetua os arredondamentos para quadro comparativo
+        if raiz_secantes:
+            raiz_secantes_truncado = Decimal(raiz_secantes).quantize(Decimal(TOL), rounding = ROUND_FLOOR)
+            raiz_secantes_arredondado = Decimal(raiz_secantes).quantize(Decimal(TOL), rounding = ROUND_05UP)
+
+    else:
+        print('Não é possível garantir que há raízes no intervalo.')
+        tempo_decorrido_secantes = None
+        raiz_secantes = None
+        raiz_secantes_truncado = None
+        raiz_secantes_arredondado = None
+
     # Comparativo entre métodos
 
     print('\n---')
@@ -253,6 +357,8 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
     comparativo_bissecao = None
     tempo_posicao_falsa = None
     comparativo_posicao_falsa = None
+    tempo_secantes = None
+    comparativo_secantes = None
 
     if raiz_bissecao:
         tempo_bissecao = '{:.6f}s'.format(tempo_decorrido_bissecao)
@@ -260,12 +366,18 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
         if raiz_posicao_falsa:
             tempo_posicao_falsa = '{:.6f}s'.format(tempo_decorrido_posicao_falsa)
             comparativo_posicao_falsa = '~{:.1f}x'.format(tempo_decorrido_posicao_falsa/tempo_decorrido_bissecao)
+        if raiz_secantes:
+            tempo_secantes = '{:.6f}s'.format(tempo_decorrido_secantes)
+            comparativo_secantes = '~{:.1f}x'.format(tempo_decorrido_secantes/tempo_decorrido_bissecao)
     else:
         tempo_bissecao = None
         comparativo_bissecao = None
         if raiz_posicao_falsa:
             tempo_posicao_falsa = '{:.6f}s'.format(tempo_decorrido_posicao_falsa)
             comparativo_posicao_falsa = '1x'.format(tempo_decorrido_posicao_falsa)
+        if raiz_secantes:
+            tempo_secantes = '{:.6f}s'.format(tempo_decorrido_secantes)
+            comparativo_secantes = '1x'.format(tempo_decorrido_secantes)
 
     raiz_bissecao = '--' if raiz_bissecao is None else raiz_bissecao
     raiz_bissecao_truncado = '--' if raiz_bissecao_truncado is None else raiz_bissecao_truncado
@@ -279,6 +391,12 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
     tempo_posicao_falsa = '--' if tempo_posicao_falsa is None else tempo_posicao_falsa
     comparativo_posicao_falsa = '--' if comparativo_posicao_falsa is None else comparativo_posicao_falsa
 
+    raiz_secantes = '--' if raiz_secantes is None else raiz_secantes
+    raiz_secantes_truncado = '--' if raiz_secantes_truncado is None else raiz_secantes_truncado
+    raiz_secantes_arredondado = '--' if raiz_secantes_arredondado is None else raiz_secantes_arredondado
+    tempo_secantes = '--' if tempo_secantes is None else tempo_secantes
+    comparativo_secantes = '--' if comparativo_secantes is None else comparativo_secantes
+
     # Exibe linhas do quadro comparativo
 
     print('Bisseção|{}|{}|{}|{}|{}'.format(
@@ -288,6 +406,10 @@ def encontra_raizes(f, descricao, a, b, t = TOL, max_iteracoes = MAX_ITER):
     print('Posição falsa|{}|{}|{}|{}|{}'.format(
         raiz_posicao_falsa, raiz_posicao_falsa_truncado, raiz_posicao_falsa_arredondado,
         tempo_posicao_falsa, comparativo_posicao_falsa
+    ))
+    print('Secantes|{}|{}|{}|{}|{}'.format(
+        raiz_secantes, raiz_secantes_truncado, raiz_secantes_arredondado,
+        tempo_secantes, comparativo_secantes
     ))
 
 
