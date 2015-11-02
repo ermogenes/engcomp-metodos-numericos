@@ -17,6 +17,10 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
 * [Implementação](sem3/newton-raphson.c) em  C da aproximação de raízes de funções reais pelo método de Newton-Raphson.
 * [Resultado](sem3/newton-raphson.md) da execução do script acima
 
+## Semana 4
+* [Implementação](sem4/matrizes.c) em  C da fatoração LU com pivotação parcial.
+* [Resultado](sem4/resultado.txt) da execução do [script de teste](sem4/teste_fatoracao_lu.c)
+
 ## Créditos
 
 **Exercícios**: [Univesp](http://engenharia.cursos.univesp.br/)
