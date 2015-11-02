@@ -5,6 +5,7 @@
 
 double** matriz(int dim);
 double** matriz_nula(int dim);
+double** matriz_identidade(int dim);
 double** matriz_valores(int dim, double *m);
 void imprime_matriz(double **M, int dim, char *identificador);
 

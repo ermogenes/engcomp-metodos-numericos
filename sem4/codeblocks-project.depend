@@ -20,3 +20,18 @@
 	<stdlib.h>
 	"matrizes.h"
 
+1446433970 source:c:\users\ermogenes\desktop\git\engcomp-metodos-numericos\sem4\teste_fatoracao_lu.c
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+	"matrizes.h"
+
+1446430919 c:\users\ermogenes\desktop\git\engcomp-metodos-numericos\sem4\matrizes.h
+	<stdbool.h>
+
+1446433962 source:c:\users\ermogenes\desktop\git\engcomp-metodos-numericos\sem4\matrizes.c
+	<math.h>
+	<stdbool.h>
+	<stdio.h>
+	<stdlib.h>
+
