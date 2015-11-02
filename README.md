@@ -19,7 +19,7 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
 
 ## Semana 4
 * [Implementação](sem4/matrizes.c) em  C da fatoração LU com pivotação parcial.
-* [Resultado](sem4/resultado.txt) da execução do [script de teste](sem4/teste_fatoracao_lu.c)
+* [Resultado](sem4/resultados.txt) da execução do [script de teste](sem4/teste_fatoracao_lu.c)
 
 ## Créditos
 
