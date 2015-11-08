@@ -203,7 +203,6 @@ void substituicao_ascendente(double **L, double **B, int dim, double **Y){
         }
         Y[i][0] = (1 / L[i][i]) * (B[i][0] - soma);
     }
-//    imprime_matriz(Y, dim, 1, "Y substituido");
 };
 
 void substituicao_descendente(double **U, double **Y, int dim, double **X){
@@ -218,7 +217,6 @@ void substituicao_descendente(double **U, double **Y, int dim, double **X){
         }
         X[i][0] = (1 / U[i][i]) * (Y[i][0] - soma);
     }
-//    imprime_matriz(X, dim, 1, "X substituido");
 };
 
 void solucao_linear(double **A, int dim, double **B, double **P, double **X){
@@ -232,21 +230,11 @@ void solucao_linear(double **A, int dim, double **B, double **P, double **X){
     fatoracao_lu(A, dim, L, U, P);
 
     double **PB = matriz_nula(dim, 1);
-//    double **PX = matriz_nula(dim, 1);
 
     PB = produto(P, B, dim, dim, dim, 1);
-//    imprime_matriz(PB, dim, 1, "B pivotada");
 
     substituicao_ascendente(L, PB, dim, Y);
 
-//    imprime_matriz(Y, dim, 1, "Y");
-
     substituicao_descendente(U, Y, dim, X);
 
-//    imprime_matriz(X, dim, 1, "X nao pivotada");
-
-//    PX = produto_quadradas(P, X, dim);
-//    imprime_matriz(PX, dim, 1, "X pivotada");
-
-//    #TODO Ver a melhor maneira de retornar a matriz resultado que está pivotada
 }

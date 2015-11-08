@@ -2,7 +2,7 @@
 1446315103 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem4\fatoracao_lu.c
 	"matrizes.h"
 
-1446498537 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem4\matrizes.c
+1446994668 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem4\matrizes.c
 	<math.h>
 	<stdbool.h>
 	<stdio.h>
@@ -15,7 +15,7 @@
 
 1446302395 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem4\teste_sistemas_lineares.c
 
-1446497240 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem4\teste_fatoracao_lu.c
+1446994506 source:c:\users\ermogenes\desktop\bim6\metnum\engcomp-metodos-numericos\sem4\teste_fatoracao_lu.c
 	<stdbool.h>
 	<stdio.h>
 	<stdlib.h>

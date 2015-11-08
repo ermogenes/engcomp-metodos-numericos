@@ -17,7 +17,7 @@ void teste_fatoracao_3x3(){
 
     bool correto;
 
-    printf("\n-------------------\n\n");
+    printf("\n-------------------\n");
     printf("Teste 1: matriz 3x3");
     printf("\n-------------------\n\n");
 
@@ -65,7 +65,7 @@ void teste_fatoracao_4x4(){
 
     bool correto;
 
-    printf("\n-------------------\n\n");
+    printf("\n-------------------\n");
     printf("Teste 2: matriz 4x4");
     printf("\n-------------------\n\n");
 
@@ -128,8 +128,9 @@ void teste_resolucao_3x3(){
     X = matriz_nula(3, 1);
     P = matriz_quadrada_nula(3);
 
-    printf("\n-------------------\n\n");
+    printf("\n-------------------\n");
     printf("\nSolucao linear para o sistema: \n");
+    printf("\n-------------------\n");
 
     printf("x1\t\tx2\t\tx3\t\t\tb\n");
     int i;
@@ -163,8 +164,9 @@ void teste_resolucao_4x4(){
     X = matriz_nula(4, 1);
     P = matriz_quadrada_nula(4);
 
-    printf("\n-------------------\n\n");
+    printf("\n-------------------\n");
     printf("\nSolucao linear para o sistema: \n");
+    printf("\n-------------------\n");
 
     printf("x1\t\tx2\t\tx3\t\tx4\t\t\tb\n");
     int i;
@@ -192,8 +194,8 @@ int main(void){
     teste_fatoracao_3x3();
     teste_fatoracao_4x4();
 
-//    teste_resolucao_3x3();
-//    teste_resolucao_4x4();
+    teste_resolucao_3x3();
+    teste_resolucao_4x4();
 
     return 0;
 }
