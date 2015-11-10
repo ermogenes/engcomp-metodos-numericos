@@ -10,6 +10,8 @@ Date: 2015-11-02
 #include <stdio.h>
 #include <stdlib.h>
 
+const double TOLERANCE = 0.0001;
+
 double** matriz(int l, int c){
     int i;
     double **M = malloc(sizeof(double *) * l);
@@ -85,38 +87,14 @@ void imprime_matriz(double **M, int l, int c, char *identificador){
     printf("\n--- %s ---\n", identificador);
     for(i = 0; i < l; i++){
         for(j = 0; j < c; j++){
-            printf("%f\t", M[i][j]);
+            printf("%.2f\t", M[i][j]);
         }
         printf("\n");
     }
 };
 
-double arred(double n, int multiplicador){
-    return round(n * multiplicador) / multiplicador;
-}
-
-bool matrizes_iguais(double **M1, double **M2, int dim){
-    int i, j;
-    double m1ij, m2ij;
-    int multiplicador = 1000;
-    for(i = 0; i < dim; i++){
-        for(j = 0; j < dim; j++){
-            m1ij = arred(M1[i][j], multiplicador);
-            m2ij = arred(M2[i][j], multiplicador);
-            if (m1ij != m2ij){
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-bool confere_fatoracao_lu(double **A, int dim, double **L, double **U, double **P, double **L_ok, double **U_ok, double **P_ok){
-    return (
-        matrizes_iguais(L, L_ok, dim) &&
-        matrizes_iguais(U, U_ok, dim) &&
-        matrizes_iguais(P, P_ok, dim)
-    );
+bool iguais(double x, double y){
+    return (fabs(x - y) <= TOLERANCE);
 }
 
 void troca(double *x, double *y){
@@ -194,47 +172,61 @@ void fatoracao_lu(double **A, int dim, double **L, double **U, double **P){
 
 void substituicao_ascendente(double **L, double **B, int dim, double **Y){
     int i, j;
-
-    Y[0][0] = B[0][0] / L[0][0];
-    for(i = 1; i < dim; i++){
-        double soma = 0;
+    for(i = 0; i < dim; i++){
+        Y[i][0] = B[i][0];
         for (j = 0; j < i; j++){
-            soma += L[i][j] * Y[j][0];
+            Y[i][0] -= L[i][j] * Y[j][0];
         }
-        Y[i][0] = (1 / L[i][i]) * (B[i][0] - soma);
+        Y[i][0] /= L[i][i];
     }
 };
 
 void substituicao_descendente(double **U, double **Y, int dim, double **X){
-    int i, j, ultimo;
-    ultimo = dim - 1;
-    X[ultimo][0] = U[ultimo][ultimo];
-
-    for(i = ultimo - 1; i >= 0; i--){
-        double soma = 0;
-        for(j = 1; j < dim; j++){
-            soma += U[i][j] * X[j][0];
+    int i, j;
+    for(i = dim - 1; i >= 0; i--){
+        X[i][0] = Y[i][0];
+        for(j = i + 1; j < dim; j++){
+            X[i][0] -= U[i][j] * X[j][0];
         }
-        X[i][0] = (1 / U[i][i]) * (Y[i][0] - soma);
+        X[i][0] /= U[i][i];
     }
 };
 
 void solucao_linear(double **A, int dim, double **B, double **P, double **X){
     double **L, **U;
     double **Y;
+    double **PB;
 
     L = matriz_quadrada_nula(dim);
     U = matriz_quadrada_nula(dim);
     Y = matriz_nula(dim, 1);
+    PB = matriz_nula(dim, 1);
 
     fatoracao_lu(A, dim, L, U, P);
-
-    double **PB = matriz_nula(dim, 1);
 
     PB = produto(P, B, dim, dim, dim, 1);
 
     substituicao_ascendente(L, PB, dim, Y);
-
     substituicao_descendente(U, Y, dim, X);
+}
 
+bool matrizes_iguais(double **M1, double **M2, int l, int c){
+    int i, j;
+    for(i = 0; i < l; i++)
+        for(j = 0; j < c; j++)
+            if (!iguais(M1[i][j], M2[i][j]))
+                return false;
+    return true;
+}
+
+bool confere_fatoracao_lu(double **L, double **U, double **P, double **L_ok, double **U_ok, double **P_ok, int dim){
+    return (
+        matrizes_iguais(L, L_ok, dim, dim) &&
+        matrizes_iguais(U, U_ok, dim, dim) &&
+        matrizes_iguais(P, P_ok, dim, dim)
+    );
+}
+
+bool confere_solucao_linear(double **X, double **X_ok, int dim){
+    return matrizes_iguais(X, X_ok, dim, 1);
 }

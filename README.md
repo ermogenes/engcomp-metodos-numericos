@@ -18,7 +18,7 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
 * [Resultado](sem3/newton-raphson.md) da execução do script acima
 
 ## Semana 4
-* [Implementação](sem4/matrizes.c) em  C da fatoração LU com pivotação parcial.
+* [Implementação](sem4/matrizes.c) em  C da fatoração LU com pivotação parcial e solução de sistema linear a partir dela.
 * [Resultado](sem4/resultados.txt) da execução do [script de teste](sem4/teste_fatoracao_lu.c)
 
 ## Créditos
