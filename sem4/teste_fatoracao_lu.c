@@ -207,6 +207,54 @@ void teste_solucao_linear_4x4(){
     free(X_correto); X_correto = NULL;
 }
 
+void imprime_teste_interpolacao(double **X, double **Fx, double **Pol, double **Pol_ok, int dim){
+    bool correto;
+
+    printf("\n-------------------\n");
+    printf("\nInterpolacao polinomial: \n");
+    imprime_matriz(X, dim, 1, "x");
+    imprime_matriz(Fx, dim, 1, "f(x)");
+
+    polinomio_interpolador(X, Fx, dim, Pol);
+
+    imprime_matriz(Pol, dim, 1, "Polinomio interpolador - forma matricial");
+
+    imprime_polinomio(Pol, dim, "Polinomio interpolador - forma polinomial");
+
+    correto = confere_interpolacao_polinomial(Pol, Pol_ok, dim);
+
+    if (correto){
+        printf("\nInterpolacao efetuada com sucesso.\n");
+    }else{
+        printf("\nInterpolacao nao passou nos testes.\n");
+    }
+
+    printf("\n-------------------\n");
+}
+
+void teste_interpolacao_grau_4(){
+    int dim = 4;
+    double x[4][1] = {{1},{2},{3},{4}};
+    double fx[4][1] = {{-17},{4},{71},{202}};
+
+    double pol[4][1] = {{-10},{-15},{5},{3}};
+
+    double **X, **Fx, **Pol;
+    double **Pol_correto;
+
+    X = matriz_valores(dim, 1, &x[0][0]);
+    Fx = matriz_valores(dim, 1, &fx[0][0]);
+    Pol = matriz_nula(dim, 1);
+    Pol_correto = matriz_valores(dim, 1, &pol[0][0]);
+
+    imprime_teste_interpolacao(X, Fx, Pol, Pol_correto, dim);
+
+    free(X); X = NULL;
+    free(Fx); Fx = NULL;
+    free(Pol); Pol = NULL;
+    free(Pol_correto); Pol_correto = NULL;
+}
+
 int main(void){
 
     teste_fatoracao_3x3();
@@ -216,5 +264,8 @@ int main(void){
     teste_solucao_linear_3x3();
     teste_solucao_linear_4x4();
 
+    teste_interpolacao_grau_4();
+
     return 0;
 }
+

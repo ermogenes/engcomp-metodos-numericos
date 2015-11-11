@@ -230,3 +230,36 @@ bool confere_fatoracao_lu(double **L, double **U, double **P, double **L_ok, dou
 bool confere_solucao_linear(double **X, double **X_ok, int dim){
     return matrizes_iguais(X, X_ok, dim, 1);
 }
+
+void constroi_matriz_interpolacao(double **X, int dim, double **A){
+    int i, j;
+    for(i = 0; i < dim; i++){
+        A[i][0] = 1;
+        A[i][1] = X[i][0];
+        for(j = 2; j < dim; j++)
+            A[i][j] = pow(A[i][1], j);
+    }
+}
+
+void polinomio_interpolador(double **X, double **Fx, int dim, double **Pol){
+    double **A, **Pivo;
+
+    A = matriz_quadrada_nula(dim);
+    Pivo = matriz_nula(dim, dim);
+
+    constroi_matriz_interpolacao(X, dim, A);
+
+	solucao_linear(A, dim, Fx, Pivo, Pol);
+}
+
+void imprime_polinomio(double **P, int grau, char *identificador){
+    int i;
+    printf("\n--- %s ---\n", identificador);
+    for(i = grau - 1; i >= 0; i--)
+        printf("%+.2f * x^%d ", P[i][0], i);
+    printf("\n");
+}
+
+bool confere_interpolacao_polinomial(double **P, double **P_ok, int dim){
+    return matrizes_iguais(P, P_ok, dim, 1);
+}

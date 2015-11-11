@@ -21,6 +21,10 @@ Meus arquivos relativos à disciplina Métodos Numéricos do curso de Engenharia
 * [Implementação](sem4/matrizes.c) em  C da fatoração LU com pivotação parcial e solução de sistema linear a partir dela.
 * [Resultado](sem4/resultados.txt) da execução do [script de teste](sem4/teste_fatoracao_lu.c)
 
+## Semana 5
+* [Implementação](sem4/matrizes.c) em  C da interpolação polinomial, utilizando a solução de sistemas lineares por fatoração LU com pivotação parcial da semana 4.
+* [Resultado](sem4/resultados.txt) da execução do [script de teste](sem4/teste_fatoracao_lu.c)
+
 ## Créditos
 
 **Exercícios**: [Univesp](http://engenharia.cursos.univesp.br/)
