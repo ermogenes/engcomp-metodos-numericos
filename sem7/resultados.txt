@@ -1,0 +1,21 @@
+Integração numérica pelo método de Simpson
+
+--- x ao cubo (x^3) ---
+Integral definida de 0 a 1, em 1000 passos
+Estimada em 0.250000
+O resultado exato é 0.250000
+
+--- inverso de x (1/x) ---
+Integral definida de 1 a 100, em 1000 passos
+Estimada em 4.605173
+O resultado exato é 4.605170
+
+--- identidade (x) ---
+Integral definida de 0 a 5000, em 5000000 passos
+Estimada em 12500000.000000
+O resultado exato é 12500000.000000
+
+--- identidade (x) ---
+Integral definida de 0 a 6000, em 6000000 passos
+Estimada em 18000000.000000
+O resultado exato é 18000000.000000
